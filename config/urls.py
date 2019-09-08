@@ -7,6 +7,12 @@ from django.views import defaults as default_views
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
+
+    path(
+      "api/",
+      include("cap_employee.employee.urls", namespace="employee"),
+    ),
+
     path(
         "about/", TemplateView.as_view(template_name="pages/about.html"), name="about"
     ),
